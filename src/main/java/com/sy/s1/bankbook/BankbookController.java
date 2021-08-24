@@ -30,7 +30,7 @@ public class BankbookController {
 				System.out.println("bookRate : " + bankbookDTO.getBookRate());
 				System.out.println("bookSale : " + bankbookDTO.getBookSale());
 			}
-			
+			request.setAttribute("list", ar);
 			RequestDispatcher view = request.getRequestDispatcher("../WEB-INF/view/bankbook/bankbookList.jsp");
 			try {
 				view.forward(request, response);
@@ -50,6 +50,8 @@ public class BankbookController {
 			bankbookDTO.setBookNumber(number2);
 			bankbookDTO = bankbookDAO.getSelect(bankbookDTO);
 			System.out.println(bankbookDTO.getBookName());
+			
+			request.setAttribute("dto", bankbookDTO);
 			
 			RequestDispatcher view = request.getRequestDispatcher("../WEB-INF/view/bankbook/bankbookSelect.jsp");
 			try {
