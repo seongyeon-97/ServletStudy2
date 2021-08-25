@@ -20,8 +20,9 @@ public class BankbookController {
 		String uri = request.getRequestURI();
 		int index = uri.lastIndexOf("/");
 		String path = uri.substring(index+1);
-		
+//----------------------------------List----------------------------------------------------		
 		if(path.equals("bankbookList.do")) {
+			
 			System.out.println("상품목록창");
 			ArrayList<BankbookDTO> ar = bankbookDAO.getList();
 			for(BankbookDTO bankbookDTO : ar) {
@@ -38,8 +39,47 @@ public class BankbookController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
+//----------------------------------Insert---------------------------------------------			
 		}else if(path.equals("bankbookInsert.do")) {
 			System.out.println("상품등록창");
+			
+			String method = request.getMethod();
+			System.out.println(method);
+			
+			if(method.equals("POST")) {
+				String bookName = request.getParameter("bookName");
+				String bookRate = request.getParameter("bookRate");
+				String bookSale = request.getParameter("bookSale");
+				
+				BankbookDTO bankbookDTO = new BankbookDTO();
+				bankbookDTO.setBookName(bookName);
+				bankbookDTO.setBookRate(Double.parseDouble(bookRate));
+				bankbookDTO.setBookSale(Integer.parseInt(bookSale));
+				int result = bankbookDAO.setInsert(bankbookDTO);
+				System.out.println(result);
+				
+//				ArrayList<BankbookDTO> ar = bankbookDAO.getList();
+//				request.setAttribute("list", ar);
+				
+				try {
+					response.sendRedirect("./bankbookList.do");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}else if(method.equals("GET")) {
+				RequestDispatcher view = request.getRequestDispatcher("../WEB-INF/view/bankbook/bankbookInsert.jsp");
+				try {
+					view.forward(request, response);
+				}catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
+//----------------------------------Select---------------------------------------------				
 		}else if(path.equals("bankbookSelect.do")) {
 			System.out.println("상품상세조회상");
 			String number = request.getParameter("booknumber");

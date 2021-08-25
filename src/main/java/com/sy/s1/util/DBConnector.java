@@ -39,4 +39,14 @@ public class DBConnector {
 		}
 		
 	}
+	
+	public void disConnect(PreparedStatement st, Connection con) {
+		try {
+			st.close();
+			con.close();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
