@@ -7,6 +7,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class BankbookController {
 	private BankbookDAO bankbookDAO;
@@ -82,7 +83,7 @@ public class BankbookController {
 //----------------------------------Select---------------------------------------------				
 		}else if(path.equals("bankbookSelect.do")) {
 			System.out.println("상품상세조회상");
-			String number = request.getParameter("booknumber");
+			String number = request.getParameter("bookNumber");
 			System.out.println(number);
 			long number2 = Long.parseLong(number);
 			
@@ -92,6 +93,13 @@ public class BankbookController {
 			System.out.println(bankbookDTO.getBookName());
 			
 			request.setAttribute("dto", bankbookDTO);
+			request.setAttribute("count", 123);
+			request.setAttribute("name", "ksy");
+			
+			HttpSession session = request.getSession();
+			session.setAttribute("se", "session");
+			request.setAttribute("se", "request");
+			
 			
 			RequestDispatcher view = request.getRequestDispatcher("../WEB-INF/view/bankbook/bankbookSelect.jsp");
 			try {

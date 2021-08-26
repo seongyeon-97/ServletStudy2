@@ -10,19 +10,15 @@
 <body>
 	<h1>BankbooknSelect Page 입니다</h1>
 	
-	<% 
-		//session
-		//application
-		//page
 		
-		String num	 = request.getParameter("booknumber");
-		Object obj = request.getAttribute("dto");
-		BankbookDTO bankbookDTO = (BankbookDTO)obj;
-	%>
+	<h3>num : ${requestScope.dto.bookNumber}</h3>
+	<h3>Name : ${requestScope.dto.bookName}</h3>
+	<h3>Rate : ${requestScope.dto.bookRate}</h3>
+	<h3>Count : ${requestScope.count}</h3>
+	<h3>Name : ${requestScope.name}</h3>
+	<h3>Session : ${sessionScope.se}</h3>
+	<h3>Session : ${se}</h3>
 	
-	<h3>num : <%= num %></h3>
-	<h3>Name = <%= bankbookDTO.getBookName() %></h3>
-	<h3>Rate = <%= bankbookDTO.getBookRate() %></h3>
 	
 </body>
 </html>
