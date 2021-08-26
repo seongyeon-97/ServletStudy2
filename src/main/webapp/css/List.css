@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+
+.c1{
+	border-left: blue 3px solid;
+	border-top: blue 3px solid;
+}
+
+.tbl{
+	border : blue solid 3px;
+	border-spacing: 0px;
+	border-collapse: collapse;
+}
+
+.tbl_tr{
+	border : blue solid 3px;
+	border-spacing: 0px;
+	border-collapse: collapse;
+}
