@@ -17,7 +17,7 @@
 <link href="../css/List.css" rel="stylesheet">
 </head>
 <body>
-	<h1>BankbookList Page BY JSTL</h1>
+	<h1 class="title">BankbookList Page BY JSTL</h1>
 	
 	<table class="tbl">
 		<tr>

@@ -1,5 +1,11 @@
 @charset "UTF-8";
 
+.title{
+	background-color: gray;
+	width: 70%;
+	margin: 0 auto;
+	text-align: center;
+}
 
 .c1{
 	border-left: blue 3px solid;
@@ -10,6 +16,8 @@
 	border : blue solid 3px;
 	border-spacing: 0px;
 	border-collapse: collapse;
+	width: 70%;
+	margin: 0 auto;
 }
 
 .tbl_tr{
